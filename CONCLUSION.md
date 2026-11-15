@@ -21,7 +21,7 @@ Give the numbers before -> after for that layer (correct / wrong / no answer, ou
 whether it changed what the agent *can do* or only what it *admits*. If no layer changed the
 number of correct answers, say so and explain what the layers did change instead.
 
-(write here)
+Workflow is one model call. Then code do the rest. Agent is a loop it call tools many times. On 15 fixed questions workflow got 13 right. Agent got only 9. Workflow used 3852 tokens. Agent used 19835 5 times more. Workflow failed on q21 and q22. Model wrote Nur-Sultan and Chimkent from question. Tool said unknown region. No second try. Only agent can do open questions. It got 7 of 9. I use workflow when question shape is known.
 
 ## 2. One failure the full harness did not fix
 
@@ -30,16 +30,16 @@ Pick one question that the full harness (layer 3) still gets wrong or refuses. G
 the model do instead? Name one thing you would add to the harness, and what it would cost
 (extra model calls, tokens, time, or a new way to fail).
 
-(write here)
+Layers helped little. Bare agent got 16 of 24. All 3 layers got 18. Layer 1 and 2 fixed q23 and q24. But q21 and q22 became wrong. Layer 3 stopped q18. Agent wrote 0.55 and number was not in tool results. It wrote same thing again. So no answer now. Model calls went from 51 to 74. Tokens went from 39500 to 60100. Time went from 92 to 107 seconds. Four answers still wrong. They are q08 q11 q17 and q21.
 
 ## 3. Workflow or agent for the monthly ranking?
 
-Dala Insight wants to publish, every month, "which region is highest and which is lowest on one
-indicator in one year". Would you ship the fixed workflow or the agent? Use the accuracy, the
+Dala Insight wants to publish every month which region is highest and lowest one
+indicator in one year. Would you ship the fixed workflow or the agent? Use the accuracy, the
 number of model calls, the tokens and the time you measured in Part 1. Then say in one sentence
 what kind of question would make you choose the other one.
 
-(write here)
+Notes helped more. Score went from 18 to 21 of 24. Wrong answers went from 4 to 1. q11 q18 and q22 are right now. But q08 and q17 are not wrong anymore. They are just no answer. Ranking is still hard for model. q21 is still wrong. Notes cost more. Tokens went from 60000 to 73000. Time went from 107 to 135 seconds. Model is small. Math is bad sometimes. I check every answer by hand before use.
 
 ---
 
